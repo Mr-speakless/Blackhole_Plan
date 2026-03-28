@@ -1,0 +1,5 @@
+@layer base {
+  :root {
+    --site-max-width: 2440px;
+  }
+}

@@ -1,0 +1,123 @@
+:root {
+  --font-serif-en: 'Cinzel', serif;
+  --font-sans-en: 'Tajawal', sans-serif;
+  --font-serif-cn: 'Source Han Serif SC VF', serif;
+  --font-sans-cn: 'WenQuanYi Micro Hei', sans-serif;
+
+  --text-s-headline-size: 80px;
+  --text-s-headline-leading: 48px;
+  --text-headline-size: 36px;
+  --text-headline-leading: 48px;
+  --text-title-size: 24px;
+  --text-title-leading: 32px;
+  --text-body-size: 16px;
+  --text-body-leading: 1;
+  --text-label-size: 12px;
+  --text-label-leading: 1;
+
+  --text-sm-headline-size: 24px;
+  --text-sm-headline-leading: 1;
+  --text-sm-title-size: 24px;
+  --text-sm-title-leading: 1;
+  --text-sm-body-size: 16px;
+  --text-sm-body-leading: 1;
+  --text-sm-label-size: 12px;
+  --text-sm-label-leading: 1;
+
+  --text-cn-s-headline-size: 88px;
+  --text-cn-s-headline-leading: 96px;
+  --text-cn-headline-size: 36px;
+  --text-cn-headline-leading: 48px;
+  --text-cn-title-size: 24px;
+  --text-cn-title-leading: 32px;
+  --text-cn-body-size: 14px;
+  --text-cn-body-leading: 1;
+  --text-cn-label-size: 10px;
+  --text-cn-label-leading: 1;
+
+  --text-cn-sm-headline-size: 20px;
+  --text-cn-sm-headline-leading: 1;
+  --text-cn-sm-title-size: 16px;
+  --text-cn-sm-title-leading: 1;
+  --text-cn-sm-body-size: 12px;
+  --text-cn-sm-body-leading: 1;
+  --text-cn-sm-label-size: 10px;
+  --text-cn-sm-label-leading: 1;
+
+  --radius-card: 16px;
+  --radius-swatch: 8px;
+
+  --color-neutral-100: #514a44;
+  --color-neutral-90: #676059;
+  --color-neutral-80: #7e766f;
+  --color-neutral-70: #958d86;
+  --color-neutral-60: #aba49d;
+  --color-neutral-50: #c2bbb5;
+  --color-neutral-40: #d9d3ce;
+  --color-neutral-30: #efebe8;
+  --color-neutral-20: #fffdfc;
+  --color-neutral-10: #fffffe;
+
+  --color-tertiary-100: #243c4f;
+  --color-tertiary-90: #34536c;
+  --color-tertiary-80: #466b8a;
+  --color-tertiary-70: #5984a7;
+  --color-tertiary-60: #6d9dc4;
+  --color-tertiary-50: #83b7e1;
+  --color-tertiary-40: #9ad2fe;
+  --color-tertiary-30: #b9dfff;
+  --color-tertiary-20: #d7edff;
+  --color-tertiary-10: #f5faff;
+
+  --color-secondary-100: #53412c;
+  --color-secondary-90: #70593f;
+  --color-secondary-80: #8d7254;
+  --color-secondary-70: #aa8c6a;
+  --color-secondary-60: #c7a783;
+  --color-secondary-50: #e4c29c;
+  --color-secondary-40: #ffdcb6;
+  --color-secondary-30: #ffe7cc;
+  --color-secondary-20: #fff1e2;
+  --color-secondary-10: #fffbf7;
+
+  --color-primary-100: #5a390f;
+  --color-primary-90: #7c521c;
+  --color-primary-80: #9e6d2d;
+  --color-primary-70: #c08942;
+  --color-primary-60: #e2a75b;
+  --color-primary-50: #ffc376;
+  --color-primary-40: #ffd194;
+  --color-primary-30: #ffdeb3;
+  --color-primary-20: #ffebd2;
+  --color-primary-10: #fff9f1;
+
+  --overlay-themist: color-mix(in srgb, var(--color-secondary-100) 75%, transparent);
+  --overlay-covid: color-mix(in srgb, #00779f 75%, transparent);
+  --overlay-glory-start: #a49eed;
+  --overlay-glory-end: #f2ddbd;
+}
+
+:root[data-lang='zh'] {
+  --font-serif-en: var(--font-serif-cn);
+  --font-sans-en: var(--font-sans-cn);
+
+  --text-s-headline-size: var(--text-cn-s-headline-size);
+  --text-s-headline-leading: var(--text-cn-s-headline-leading);
+  --text-headline-size: var(--text-cn-headline-size);
+  --text-headline-leading: var(--text-cn-headline-leading);
+  --text-title-size: var(--text-cn-title-size);
+  --text-title-leading: var(--text-cn-title-leading);
+  --text-body-size: var(--text-cn-body-size);
+  --text-body-leading: var(--text-cn-body-leading);
+  --text-label-size: var(--text-cn-label-size);
+  --text-label-leading: var(--text-cn-label-leading);
+
+  --text-sm-headline-size: var(--text-cn-sm-headline-size);
+  --text-sm-headline-leading: var(--text-cn-sm-headline-leading);
+  --text-sm-title-size: var(--text-cn-sm-title-size);
+  --text-sm-title-leading: var(--text-cn-sm-title-leading);
+  --text-sm-body-size: var(--text-cn-sm-body-size);
+  --text-sm-body-leading: var(--text-cn-sm-body-leading);
+  --text-sm-label-size: var(--text-cn-sm-label-size);
+  --text-sm-label-leading: var(--text-cn-sm-label-leading);
+}
