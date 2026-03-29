@@ -6,7 +6,23 @@ import { stripBase, withBase } from '../lib/basePath'
 import LandingPage from '../pages/LandingPage'
 
 function getPathname() {
-  return stripBase(window.location.pathname.toLowerCase())
+  const normalizedPath = stripBase(window.location.pathname).toLowerCase()
+
+  if (normalizedPath.length > 1 && normalizedPath.endsWith('/')) {
+    return normalizedPath.slice(0, -1)
+  }
+
+  return normalizedPath
+}
+
+function getLanguageQuery() {
+  const normalizedLanguage = new URLSearchParams(window.location.search).get('lang')?.toUpperCase()
+
+  if (normalizedLanguage === 'CN' || normalizedLanguage === 'EN') {
+    return `?lang=${normalizedLanguage}`
+  }
+
+  return ''
 }
 
 export function navigate(path: string) {
@@ -14,7 +30,7 @@ export function navigate(path: string) {
     return
   }
 
-  window.history.pushState({}, '', withBase(path))
+  window.history.pushState({}, '', `${withBase(path)}${getLanguageQuery()}`)
   window.dispatchEvent(new PopStateEvent('popstate'))
 }
 

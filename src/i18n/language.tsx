@@ -16,8 +16,60 @@ interface LanguageContextValue {
 
 const storageKey = 'portfolio-language'
 const fallbackLanguage: AppLanguage = 'zh'
+const languageQueryByCode: Record<AppLanguage, 'EN' | 'CN'> = {
+  en: 'EN',
+  zh: 'CN',
+}
 
 const LanguageContext = createContext<LanguageContextValue | null>(null)
+
+function readLanguageFromUrl(): AppLanguage | null {
+  if (typeof window === 'undefined') {
+    return null
+  }
+
+  const normalizedQueryLanguage = new URLSearchParams(window.location.search)
+    .get('lang')
+    ?.trim()
+    .toUpperCase()
+
+  if (normalizedQueryLanguage === 'EN') {
+    return 'en'
+  }
+
+  if (normalizedQueryLanguage === 'CN') {
+    return 'zh'
+  }
+
+  const normalizedHash = window.location.hash.trim().toUpperCase()
+
+  if (normalizedHash === '#EN') {
+    return 'en'
+  }
+
+  if (normalizedHash === '#CN') {
+    return 'zh'
+  }
+
+  return null
+}
+
+function writeLanguageQueryToUrl(language: AppLanguage) {
+  if (typeof window === 'undefined') {
+    return
+  }
+
+  const targetLanguage = languageQueryByCode[language]
+  const currentLanguage = new URLSearchParams(window.location.search).get('lang')?.toUpperCase()
+
+  if (currentLanguage === targetLanguage) {
+    return
+  }
+
+  const nextUrl = new URL(window.location.href)
+  nextUrl.searchParams.set('lang', targetLanguage)
+  window.history.replaceState(window.history.state, '', nextUrl.toString())
+}
 
 function readInitialLanguage(): AppLanguage {
   const applyLanguageToDocument = (language: AppLanguage) => {
@@ -27,6 +79,13 @@ function readInitialLanguage(): AppLanguage {
 
   if (typeof window === 'undefined') {
     return fallbackLanguage
+  }
+
+  const queryLanguage = readLanguageFromUrl()
+
+  if (queryLanguage) {
+    applyLanguageToDocument(queryLanguage)
+    return queryLanguage
   }
 
   const storedLanguage = window.localStorage.getItem(storageKey)
@@ -41,7 +100,12 @@ function readInitialLanguage(): AppLanguage {
 }
 
 export function LanguageProvider({ children }: PropsWithChildren) {
-  const [language, setLanguage] = useState<AppLanguage>(readInitialLanguage)
+  const [language, setLanguageState] = useState<AppLanguage>(readInitialLanguage)
+
+  const setLanguage = (nextLanguage: AppLanguage) => {
+    setLanguageState(nextLanguage)
+    writeLanguageQueryToUrl(nextLanguage)
+  }
 
   useEffect(() => {
     window.localStorage.setItem(storageKey, language)
@@ -49,8 +113,30 @@ export function LanguageProvider({ children }: PropsWithChildren) {
     document.documentElement.setAttribute('data-lang', language)
   }, [language])
 
+  useEffect(() => {
+    const syncLanguageWithUrl = () => {
+      const urlLanguage = readLanguageFromUrl()
+
+      if (!urlLanguage) {
+        return
+      }
+
+      setLanguageState((currentLanguage) =>
+        currentLanguage === urlLanguage ? currentLanguage : urlLanguage,
+      )
+    }
+
+    window.addEventListener('hashchange', syncLanguageWithUrl)
+    window.addEventListener('popstate', syncLanguageWithUrl)
+
+    return () => {
+      window.removeEventListener('hashchange', syncLanguageWithUrl)
+      window.removeEventListener('popstate', syncLanguageWithUrl)
+    }
+  }, [])
+
   const toggleLanguage = () => {
-    setLanguage((current) => (current === 'en' ? 'zh' : 'en'))
+    setLanguage(language === 'en' ? 'zh' : 'en')
   }
 
   return (

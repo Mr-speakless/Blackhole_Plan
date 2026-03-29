@@ -21,6 +21,7 @@ export function TopNav({
 }: TopNavProps) {
   const { language, setLanguage } = useLanguage()
   const uiCopy = getUICopy(language)
+  const languageQuery = language === 'zh' ? '?lang=CN' : '?lang=EN'
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
   const languageMenuRef = useRef<HTMLDivElement>(null)
   const handleWorkClick = () => onScrollToSection?.(sectionIds.work)
@@ -31,11 +32,11 @@ export function TopNav({
   }
   const navItemClassName =
     'text-[24px] leading-none [font-family:var(--font-sans-en)] md:text-[24px] md:leading-[24px]'
-  const homeHref = withBase('/')
-  const aboutHref = withBase('/about')
-  const blackholeHref = withBase('/blackhole')
-  const workHref = withBase(`/#${sectionIds.work}`)
-  const contactHref = withBase(`/#${sectionIds.contact}`)
+  const homeHref = `${withBase('/')}${languageQuery}`
+  const aboutHref = `${withBase('/about')}${languageQuery}`
+  const blackholeHref = `${withBase('/blackhole')}${languageQuery}`
+  const workHref = `${withBase('/')}${languageQuery}#${sectionIds.work}`
+  const contactHref = `${withBase('/')}${languageQuery}#${sectionIds.contact}`
 
   useEffect(() => {
     if (!isLanguageMenuOpen) {
