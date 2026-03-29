@@ -64,7 +64,7 @@ const uiCopyByLanguage: Readonly<Record<AppLanguage, UICopy>> = {
     nav: {
       about: '关于',
       work: '项目',
-      blackhole: 'Blackhole',
+      blackhole: '黑洞',
       contact: '联系方式',
       logoAlt: '吴烁钺标志',
       languageSwitchAriaLabel: '切换语言',
