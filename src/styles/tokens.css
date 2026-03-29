@@ -17,7 +17,7 @@
 
   --text-sm-headline-size: 24px;
   --text-sm-headline-leading: 1;
-  --text-sm-title-size: 24px;
+  --text-sm-title-size: 20px;
   --text-sm-title-leading: 1;
   --text-sm-body-size: 16px;
   --text-sm-body-leading: 1;
@@ -35,7 +35,7 @@
   --text-cn-label-size: 10px;
   --text-cn-label-leading: 1;
 
-  --text-cn-sm-headline-size: 20px;
+  --text-cn-sm-headline-size: 24px;
   --text-cn-sm-headline-leading: 1;
   --text-cn-sm-title-size: 16px;
   --text-cn-sm-title-leading: 1;

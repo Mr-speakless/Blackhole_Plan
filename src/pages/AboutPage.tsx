@@ -28,7 +28,7 @@ export default function AboutPage() {
           <p className="whitespace-pre-line text-center font-serif-en text-sm-headline leading-sm-headline md:text-[40px] md:leading-[48px]">
             {aboutPageContent.hero.introHeadline}
           </p>
-          <div className="h-[15vh] min-h-12 md:h-[10vh]" />
+          <div className="h-[10vh] min-h-12 md:h-[5vh]" />
           <RoleTicker
             roles={aboutPageContent.hero.roles}
             className="mx-auto h-[44px] px-[10px] md:h-[104px] md:px-[10px]"
