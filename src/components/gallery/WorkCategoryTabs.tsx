@@ -25,7 +25,7 @@ export function WorkCategoryTabs({
             key={category}
             type="button"
             onClick={() => onSelectCategory(category)}
-            className={`group relative whitespace-nowrap pb-2 pt-2 font-sans-en text-[20px] tracking-wide transition-colors duration-300 md:text-title md:leading-title ${
+            className={`group relative whitespace-nowrap pb-2 pt-2 font-sans-en text-sm-title leading-sm-title tracking-wide transition-colors duration-300 md:text-title md:leading-title ${
               isActive
                 ? 'text-white'
                 : 'text-white/40 hover:text-white/80'

@@ -111,6 +111,12 @@ export function RayMarchBlackHole({ backgroundTexture }: RayMarchBlackHoleProps)
     mat.uniforms.uAspect.value = size.width / size.height
     mat.uniforms.uResolution.value.set(size.width, size.height)
 
+    // Responsive black hole sizing for small screens
+    const isSmallScreen = size.width < 768
+    mat.uniforms.uSchwarzschildRadius.value = isSmallScreen ? 0.2 : SCHWARZSCHILD_RADIUS
+    mat.uniforms.uAccretionInner.value = isSmallScreen ? 0.4 : ACCRETION_INNER_RADIUS
+    mat.uniforms.uAccretionOuter.value = isSmallScreen ? 5.0 : ACCRETION_OUTER_RADIUS
+
     // Update camera uniforms
     mat.uniforms.uCameraPos.value.copy(camera.position)
     mat.uniforms.uViewMatrix.value.copy(camera.matrixWorldInverse)

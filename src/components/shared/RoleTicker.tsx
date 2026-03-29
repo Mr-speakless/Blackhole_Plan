@@ -60,7 +60,7 @@ export function RoleTicker({
   const baseContainerClasses = 'content-stretch flex items-center justify-center p-[10px] relative overflow-hidden w-full'
   const containerClasses = [baseContainerClasses, className].filter(Boolean).join(' ')
 
-  const baseItemClasses = 'font-serif-en font-normal text-s-headline text-center text-white whitespace-nowrap shrink-0'
+  const baseItemClasses = 'text-center text-white whitespace-nowrap shrink-0'
   const itemClasses = [baseItemClasses, itemClassName].filter(Boolean).join(' ')
 
   const sizingRole = roles.reduce((widestRole, role) =>

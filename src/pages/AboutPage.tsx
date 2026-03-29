@@ -25,14 +25,14 @@ export default function AboutPage() {
       <section className="w-full px-[30px] md:px-0">
         <div className="mx-auto w-full max-w-[1280px]">
           <div className="h-[30vh] min-h-11" />
-          <p className="text-center text-[24px] leading-none [font-family:var(--font-serif-en)] md:text-[40px] md:leading-[48px]">
+          <p className="whitespace-pre-line text-center font-serif-en text-sm-headline leading-sm-headline md:text-[40px] md:leading-[48px]">
             {aboutPageContent.hero.introHeadline}
           </p>
           <div className="h-[15vh] min-h-12 md:h-[10vh]" />
           <RoleTicker
             roles={aboutPageContent.hero.roles}
             className="mx-auto h-[44px] px-[10px] md:h-[104px] md:px-[10px]"
-            itemClassName="text-[24px] leading-none [font-family:var(--font-serif-en)] md:text-[var(--text-s-headline-size)] md:leading-[var(--text-s-headline-leading)]"
+            itemClassName="font-serif-en text-sm-headline leading-sm-headline md:text-s-headline md:leading-s-headline"
           />
           <div className="h-[30vh] min-h-20" />
         </div>
@@ -176,11 +176,12 @@ export default function AboutPage() {
                 rel="noreferrer"
                 className={actionLinkClassName}
               >
-                <span>{aboutPageContent.resume.label}</span>
+                <span className="hidden md:block">{aboutPageContent.resume.label}</span>
+                <span className="block md:hidden">{aboutPageContent.resume.shortLabel}</span>
                 <svg
                   viewBox="0 0 32 32"
                   aria-hidden="true"
-                  className="h-[16px] w-[16px] text-current"
+                  className="h-[12px] w-[12px] shrink-0 text-current"
                 >
                   <path
                     d="M16 4V26M6 16L16 26L26 16"
@@ -201,11 +202,12 @@ export default function AboutPage() {
                 rel="noreferrer"
                 className={actionLinkClassName}
               >
-                <span>{aboutPageContent.portfolio.label}</span>
+                <span className="hidden md:block">{aboutPageContent.portfolio.label}</span>
+                <span className="block md:hidden">{aboutPageContent.portfolio.shortLabel}</span>
                 <svg
                   viewBox="0 0 32 32"
                   aria-hidden="true"
-                  className="h-[16px] w-[16px] text-current"
+                  className="h-[12px] w-[12px] shrink-0 text-current"
                 >
                   <path
                     d="M16 4V26M6 16L16 26L26 16"

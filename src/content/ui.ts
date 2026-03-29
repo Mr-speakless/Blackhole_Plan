@@ -35,7 +35,7 @@ const uiCopyByLanguage: Readonly<Record<AppLanguage, UICopy>> = {
     nav: {
       about: 'About',
       work: 'Work',
-    blackhole: 'Explore_Blackhole',
+      blackhole: 'Blackhole',
       contact: 'Contact',
       logoAlt: 'Shuoyue Wu logo',
       languageSwitchAriaLabel: 'Switch language',
@@ -64,8 +64,8 @@ const uiCopyByLanguage: Readonly<Record<AppLanguage, UICopy>> = {
     nav: {
       about: '关于',
       work: '项目',
-    blackhole: '黑洞探索',
-      contact: '联系',
+      blackhole: 'Blackhole',
+      contact: '联系方式',
       logoAlt: '吴烁钺标志',
       languageSwitchAriaLabel: '切换语言',
       languageIconAlt: '语言',

@@ -67,7 +67,7 @@ export const ENTERING_CAMERA_END_Z = 0.5      // Final camera Z at end of plunge
 // Controls how the gravitational lensing effect is applied
 // ============================================================
 export const LENSING_STRENGTH = 0.6             // Overall gravity multiplier (1 = physically correct, <1 = weaker lensing)
-export const LENSING_RADIUS = 0.2              // Aspect-corrected screen-space radius where lensing is at full strength. Now circular (not elliptical)
+export const LENSING_RADIUS = 0.15              // Aspect-corrected screen-space radius where lensing is at full strength. Now circular (not elliptical)
 export const FBO_RESOLUTION = 1024            // Resolution of the offscreen render target for icon textures (px)
 
 // ============================================================

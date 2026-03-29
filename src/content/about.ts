@@ -48,10 +48,12 @@ interface AboutPageContent {
   }
   resume: {
     label: string
+    shortLabel: string
     url: string
   }
   portfolio: {
     label: string
+    shortLabel: string
     url: string
   }
 }
@@ -59,7 +61,7 @@ interface AboutPageContent {
 const aboutPageContentByLanguage: Readonly<Record<AppLanguage, AboutPageContent>> = {
   en: {
     hero: {
-      introHeadline: 'HI, I am Shuoyue Wu, I am a...',
+      introHeadline: 'HI, I am Shuoyue Wu,\nI am a...',
       roles: ['Artist', 'Product Designer', 'Product Manager', 'Full-stack Developer', 'AI Film maker'],
     },
     portrait: {
@@ -161,16 +163,18 @@ const aboutPageContentByLanguage: Readonly<Record<AppLanguage, AboutPageContent>
     },
     resume: {
       label: 'Download Resume (PDF)',
+      shortLabel: 'Resume',
       url: withBase('/assets/PDFs/Shuoyue_Wu_Resume_jan2026.pdf'),
     },
     portfolio: {
       label: 'View Portfolio',
+      shortLabel: 'Portfolio',
       url: 'https://drive.google.com/file/d/1MkFhQ7hDYI8A5Hk1reh1pe3L9sLQ4sAl/view',
     },
   },
   zh: {
     hero: {
-      introHeadline: '你好，我是吴烁钺，我是一名...',
+      introHeadline: '你好，我是吴烁钺，\n我是一名...',
       roles: ['艺术家', '产品设计师', '产品经理', '全栈开发者', 'AI 电影创作者'],
     },
     portrait: {
@@ -271,10 +275,12 @@ const aboutPageContentByLanguage: Readonly<Record<AppLanguage, AboutPageContent>
     },
     resume: {
       label: '下载简历（PDF）',
+      shortLabel: '简历',
       url: withBase('/assets/PDFs/Shuoyue_Wu_Resume_jan2026.pdf'),
     },
     portfolio: {
       label: '查看作品集',
+      shortLabel: '作品集',
       url: 'https://drive.google.com/file/d/1MkFhQ7hDYI8A5Hk1reh1pe3L9sLQ4sAl/view',
     },
   },

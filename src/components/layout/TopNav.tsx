@@ -4,6 +4,7 @@ import { HoverRollText } from '../shared/HoverRollText'
 import { getUICopy } from '../../content/ui'
 import { useLanguage, type AppLanguage } from '../../i18n/language'
 import { withBase } from '../../lib/basePath'
+import { LiquidGlassShader } from '../shared/LiquidGlassShader'
 import { sectionIds } from '../../lib/routes'
 
 interface TopNavProps {
@@ -29,6 +30,37 @@ export function TopNav({
   const handleLanguageSelect = (nextLanguage: AppLanguage) => {
     setLanguage(nextLanguage)
     setIsLanguageMenuOpen(false)
+  }
+
+  const [activeMobileIdx, setActiveMobileIdx] = useState<number | null>(null)
+
+  useEffect(() => {
+    const currentPath = window.location.pathname
+    if (currentPath.includes('/about')) setActiveMobileIdx(0)
+    else if (currentPath.includes('/blackhole')) setActiveMobileIdx(2)
+    else setActiveMobileIdx(1) // Default to Work/Home
+  }, [])
+
+  const handleMobileNavClick = (
+    idx: number,
+    action?: () => void,
+    url?: string
+  ) => {
+    setActiveMobileIdx(idx)
+    if (action) {
+      action()
+    } else if (url) {
+      window.location.href = url
+    }
+  }
+
+  const getMobileNavItemClassName = (idx: number) => {
+    const isActive = activeMobileIdx === idx
+    return `relative z-10 flex h-8 items-center justify-center whitespace-nowrap rounded-[18px] px-2 text-center text-[13px] leading-none transition-colors duration-300 ${
+      isActive
+        ? 'text-black font-medium cursor-default'
+        : 'text-white/70 hover:text-white hover:bg-white/10 active:scale-95'
+    } [font-family:var(--font-sans-en)]`
   }
   const navItemClassName =
     'text-[24px] leading-none [font-family:var(--font-sans-en)] md:text-[24px] md:leading-[24px]'
@@ -65,21 +97,22 @@ export function TopNav({
   }, [isLanguageMenuOpen])
 
   return (
-    <header className="w-full px-[30px] pt-[30px] md:px-10 md:pt-6">
-      <nav className="mx-auto flex w-full max-w-[1200px] justify-between items-center">
-        <a href={homeHref} className="flex items-end gap-3">
-          <img
-            src={withBase('/assets/icons/navigation/square-logo.svg')}
-            alt={uiCopy.nav.logoAlt}
-            className="h-6 w-6"
-          />
-          <span className="hidden text-[24px] leading-[24px] [font-family:var(--font-sans-en)] md:inline">
-            Shuoyue Wu
-          </span>
-        </a>
+    <>
+      <header className="w-full px-[30px] pt-[30px] md:px-10 md:pt-6">
+        <nav className="mx-auto flex w-full max-w-[1200px] justify-between items-center">
+          <a href={homeHref} className="flex items-center gap-2 md:items-end md:gap-3 z-50">
+            <img
+              src={withBase('/assets/icons/navigation/square-logo.svg')}
+              alt={uiCopy.nav.logoAlt}
+              className="h-6 w-6"
+            />
+            <span className="text-[16px] leading-[24px] tracking-wide [font-family:var(--font-sans-en)] md:text-[24px]">
+              Shuoyue Wu
+            </span>
+          </a>
 
-        <div className="flex items-center gap-4 md:gap-6">
           <div className="flex items-center gap-4 md:gap-6">
+            <div className="hidden md:flex items-center gap-4 md:gap-6">
             {onNavigateAbout ? (
               <button
                 type="button"
@@ -187,5 +220,101 @@ export function TopNav({
         </div>
       </nav>
     </header>
+
+      {/* Mobile Bottom Navigation (Floating Card) */}
+      <nav
+        className="fixed bottom-8 left-1/2 z-50 flex w-[calc(100%-48px)] max-w-[380px] -translate-x-1/2 items-center overflow-hidden rounded-[24px] border border-white/10 p-1.5 shadow-2xl md:hidden"
+        style={{
+          backdropFilter: 'blur(24px) saturate(150%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(10%)',
+          backgroundColor: 'rgba(255, 255, 255, 0.05)'
+        }}
+      >
+        <LiquidGlassShader />
+        
+        <div className="relative grid w-full grid-cols-4 items-stretch">
+          {/* Sliding Pill Indicator */}
+          <div 
+            className="absolute left-0 top-0 h-full w-1/4 rounded-[18px] bg-white shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-transform duration-500 will-change-transform"
+            style={{
+              transform: `translateX(${(activeMobileIdx === null ? 1 : activeMobileIdx) * 100}%)`,
+              transitionTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)'
+            }}
+          />
+
+          {onNavigateAbout ? (
+            <button
+              type="button"
+              onClick={() => handleMobileNavClick(0, onNavigateAbout)}
+              className={getMobileNavItemClassName(0)}
+            >
+              {uiCopy.nav.about}
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => handleMobileNavClick(0, undefined, aboutHref)}
+              className={getMobileNavItemClassName(0)}
+            >
+              {uiCopy.nav.about}
+            </button>
+          )}
+
+          {onScrollToSection ? (
+            <button
+              type="button"
+              onClick={() => handleMobileNavClick(1, handleWorkClick)}
+              className={getMobileNavItemClassName(1)}
+            >
+              {uiCopy.nav.work}
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => handleMobileNavClick(1, undefined, workHref)}
+              className={getMobileNavItemClassName(1)}
+            >
+              {uiCopy.nav.work}
+            </button>
+          )}
+
+          {onNavigateBlackhole ? (
+            <button
+              type="button"
+              onClick={() => handleMobileNavClick(2, onNavigateBlackhole)}
+              className={getMobileNavItemClassName(2)}
+            >
+              {uiCopy.nav.blackhole}
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => handleMobileNavClick(2, undefined, blackholeHref)}
+              className={getMobileNavItemClassName(2)}
+            >
+              {uiCopy.nav.blackhole}
+            </button>
+          )}
+
+          {onOpenContact ? (
+            <button
+              type="button"
+              onClick={() => handleMobileNavClick(3, handleContactClick)}
+              className={getMobileNavItemClassName(3)}
+            >
+              {uiCopy.nav.contact}
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => handleMobileNavClick(3, undefined, contactHref)}
+              className={getMobileNavItemClassName(3)}
+            >
+              {uiCopy.nav.contact}
+            </button>
+          )}
+        </div>
+      </nav>
+    </>
   )
 }
