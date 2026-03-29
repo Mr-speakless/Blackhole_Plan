@@ -29,14 +29,14 @@ export function LandingHeroSection() {
       <section
         ref={sectionRef}
         id={sectionIds.hero}
-        className="flex w-full flex-col items-center justify-center gap-8 md:flex-row md:gap-16 opacity-0"
+        className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-16 opacity-0"
       >
         <img
           src={withBase('/assets/icons/navigation/square-logo.svg')}
           alt={uiCopy.nav.logoAlt}
           className="h-[120px] w-[120px] shrink-0 md:h-[200px] md:w-[200px]"
         />
-        <h1 className="w-full max-w-[619px] whitespace-pre-line font-serif-en text-center text-sm-headline leading-sm-headline text-neutral-10 md:text-left md:text-headline md:leading-headline">
+        <h1 className=" max-w-[619px] whitespace-pre-line font-serif-en text-center text-sm-headline leading-sm-headline text-neutral-10 md:text-left md:text-headline md:leading-headline">
           {landingPageContent.hero.headline}
           <br />
           {landingPageContent.hero.summary}

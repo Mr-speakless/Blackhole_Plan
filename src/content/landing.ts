@@ -11,13 +11,13 @@ const landingPageContentByLanguage: Readonly<Record<AppLanguage, LandingPageCont
   en: {
     hero: {
       headline: 'HI, I am Shuoyue Wu',
-      summary: 'My work focuses on imagination and storytelling.',
+      summary: 'I use design to solve, and storytelling to question.',
     },
   },
   zh: {
     hero: {
-      headline: '我是吴烁钺',
-      summary: '一位专注于\n想象力与叙事的创作者',
+      headline: '你好，我是吴烁钺',
+      summary: '为经世致用而设计\n为格物求真而创作',
     },
   },
 }
