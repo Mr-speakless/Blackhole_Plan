@@ -64,6 +64,17 @@ export default function AboutPage() {
 
             <section>
               <h2 className="text-[24px] leading-none [font-family:var(--font-sans-en)] md:text-[32px] md:leading-[32px]">
+                {aboutPageContent.artistStatement.title}
+              </h2>
+              <div className="mt-6 space-y-5 text-[16px] leading-normal [font-family:var(--font-sans-en)]">
+                {aboutPageContent.artistStatement.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-[24px] leading-none [font-family:var(--font-sans-en)] md:text-[32px] md:leading-[32px]">
                 {aboutPageContent.skills.title}
               </h2>
               <ul className="mt-6 flex flex-col gap-1">

@@ -30,6 +30,10 @@ interface AboutPageContent {
     title: string
     paragraphs: readonly string[]
   }
+  artistStatement: {
+    title: string
+    paragraphs: readonly string[]
+  }
   skills: {
     title: string
     categories: ReadonlyArray<{
@@ -71,9 +75,15 @@ const aboutPageContentByLanguage: Readonly<Record<AppLanguage, AboutPageContent>
     biography: {
       title: 'About me',
       paragraphs: [
-        'My design philosophy is inspired by the principles of Bada Shanren, embracing a "simple yet profound" approach to exploring the intricate relationship between humans and the environment. In my work, I strive for restrained expression, using subtraction to achieve addition, allowing the core ideas of my designs to naturally emerge through negative space and subtle details.',
-        'Bada Shanren, a monk and painter in ancient China, lived a life shaped by profound experiences. Misjudged and wronged in his early years, he chose to take monastic vows and remained silent for the rest of his life, leading many to believe he was mute. However, I see his silence not as a limitation but as a deliberate, restrained response to the sorrow and disillusionment of the world.',
-        'This philosophy is embodied in my logo design, which is inspired by a reinterpretation of the Chinese character "哑" (mute). Through this redesign, I aim to convey the aesthetic of restraint and negative space, reflecting the beauty and meaning found in quietude and subtlety.',
+        'I’m Shuoyue Wu, an emerging product builder with a background in design, AI products, and creative technology. I’ve worked across product design and product management, and I’m most excited by building products from concept to user experience with an eye on both market need and technical possibility. Long term, I hope to grow into a cross-disciplinary creator who can bridge product vision, design, development, and go-to-market thinking.',
+      ],
+    },
+    artistStatement: {
+      title: 'Artist Statement',
+      paragraphs: [
+        'I’m a digital media artist currently studying at NYU Tisch. My work explores the boundaries between technology, perception, and storytelling, and I’m interested in how digital and physical media can shape emotion, experience, and meaning.',
+        'Through interactive installations and AI-generated imagery, I examine the often fragile, strange, and sometimes absurd relationships between people, society, the environment, and technology. I’m especially drawn to overlooked moments in everyday life, moments that quietly reveal both the tenderness and the contradictions of the world we live in.',
+        'Through my work, I hope to invite viewers to pause, reflect, and look again at what feels familiar. My projects have been exhibited in public art spaces, and my AI films have been selected and nominated at several international film festivals.',
       ],
     },
     skills: {
@@ -184,9 +194,15 @@ const aboutPageContentByLanguage: Readonly<Record<AppLanguage, AboutPageContent>
     biography: {
       title: '关于我',
       paragraphs: [
-        '我的设计理念受到八大山人思想的启发，以“简而深”的方式探索人与环境之间复杂而细腻的关系。在创作中，我追求克制的表达，通过“减法”实现“加法”，让设计核心在留白与细节中自然显现。',
-        '八大山人是中国古代的僧人和画家，他的人生经历深刻而复杂。早年遭受误解与不公后，他选择遁入空门，并长期沉默，世人因此常将其视作“哑者”。但在我看来，这种沉默并非局限，而是一种对现实悲悯与幻灭感的克制回应。',
-        '这一思想也体现在我的 Logo 设计中。它来源于对“哑”字的再诠释，我希望借此传达克制与留白的美学，呈现安静与含蓄之中所蕴含的力量与意义。',
+        '我是吴烁钺，一位在产品与设计领域的新人。我拥有AIGC相关产品的设计与产品经理相关经验，尤为热衷于从概念构思到用户体验的全流程产品构建。我始终兼顾市场需求与技术可行性。从长远来看，我立志成长为一名全周期的创作者（从概念到落地），能够有效地在产品愿景、设计、开发与市场推广思维之间搭建桥梁。',
+      ],
+    },
+    artistStatement: {
+      title: '关于艺术创作',
+      paragraphs: [
+        '我是吴烁钺，一名就读于纽约大学帝势艺术学院（NYU Tisch）的数字媒体艺术家。我的创作实践始终探索科技、感知与叙事之间的边界，致力于发掘数字媒介与实体媒介交融共生的新可能，让技术成为唤醒情感、传递深意的载体。',
+        '通过互动装置与人工智能生成影像，我聚焦于人类、社会、环境与科技之间脆弱却又常带荒诞感的联结。那些日常中被忽略的瞬间深深吸引着我，它们藏着现代生活的温柔底色，也映照着我们生存状态里的矛盾与张力。',
+        '我希望我的作品能让观者驻足、沉思，直面这个既熟悉又陌生的世界。目前，我的创作已在多个公共艺术空间展出，AI 影像作品也入选并提名了多项国际电影节奖项。',
       ],
     },
     skills: {
