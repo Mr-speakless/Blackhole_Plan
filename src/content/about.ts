@@ -164,7 +164,7 @@ const aboutPageContentByLanguage: Readonly<Record<AppLanguage, AboutPageContent>
     resume: {
       label: 'Download Resume (PDF)',
       shortLabel: 'Resume',
-      url: withBase('/assets/PDFs/Shuoyue_Wu_Resume_jan2026.pdf'),
+      url: withBase('/assets/PDFs/Shuoyue_Wu_Resume_Mar2026.pdf'),
     },
     portfolio: {
       label: 'View Portfolio',
@@ -276,7 +276,7 @@ const aboutPageContentByLanguage: Readonly<Record<AppLanguage, AboutPageContent>
     resume: {
       label: '下载简历（PDF）',
       shortLabel: '简历',
-      url: withBase('/assets/PDFs/Shuoyue_Wu_Resume_jan2026.pdf'),
+      url: withBase('/assets/PDFs/Shuoyue_Wu_Resume_Mar2026.pdf'),
     },
     portfolio: {
       label: '查看作品集',
